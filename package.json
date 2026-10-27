@@ -1,0 +1,17 @@
+{
+  "name": "watch-party-mvc",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Production-grade YouTube Watch Party with MVC architecture, MongoDB persistence, Tailwind CSS, and role-based real-time sync",
+  "scripts": {
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build": "npm --prefix server install && npm --prefix client install && npm --prefix client run build",
+    "start": "node server/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
