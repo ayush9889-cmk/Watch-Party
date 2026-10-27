@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
-import Button from '../common/Button';
-import Input from '../common/Input';
-import { UsersIcon } from '../common/Icons';
+import React, { useState } from "react";
+import Button from "../common/Button";
+import Input from "../common/Input";
+import { UsersIcon } from "../common/Icons";
 
-export default function JoinRoomCard({ username, setUsername, initialCode = '', onJoin, error }) {
+export default function JoinRoomCard({
+  username,
+  setUsername,
+  initialCode = "",
+  onJoin,
+  error,
+}) {
   const [code, setCode] = useState(initialCode);
 
   const handleSubmit = (e) => {
@@ -21,15 +27,19 @@ export default function JoinRoomCard({ username, setUsername, initialCode = '', 
             <UsersIcon className="w-4 h-4" />
           </div>
           <div>
-            <h2 className="text-lg font-bold text-white font-display">Join an Existing Room</h2>
-            <p className="text-xs text-slate-400">Enter a 6-character room code</p>
+            <h2 className="text-lg font-bold text-white font-display">
+              Join an Existing Room
+            </h2>
+            <p className="text-xs text-slate-400">
+              Enter a 6-character room code
+            </p>
           </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input
             label="Your Name"
-            placeholder="e.g. Sam"
+            placeholder="e.g. Ayush Singh"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             maxLength={24}
@@ -50,7 +60,11 @@ export default function JoinRoomCard({ username, setUsername, initialCode = '', 
             />
           </div>
 
-          {error && <p className="text-xs text-rose-400 bg-rose-950/40 p-2.5 rounded-lg border border-rose-500/30">{error}</p>}
+          {error && (
+            <p className="text-xs text-rose-400 bg-rose-950/40 p-2.5 rounded-lg border border-rose-500/30">
+              {error}
+            </p>
+          )}
 
           <Button
             type="submit"
@@ -65,7 +79,8 @@ export default function JoinRoomCard({ username, setUsername, initialCode = '', 
 
       <div className="mt-6 pt-5 border-t border-slate-800/80 text-center">
         <p className="text-xs text-slate-400">
-          Got an invite link? Simply paste it into your browser to jump straight in!
+          Got an invite link? Simply paste it into your browser to jump straight
+          in!
         </p>
       </div>
     </div>

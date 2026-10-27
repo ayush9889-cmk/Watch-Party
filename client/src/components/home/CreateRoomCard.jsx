@@ -1,18 +1,31 @@
-import React, { useState } from 'react';
-import Button from '../common/Button';
-import Input from '../common/Input';
-import { SparklesIcon, YoutubeIcon } from '../common/Icons';
-import { extractVideoId, PRESET_VIDEOS } from '../../utils/youtube';
+import React, { useState } from "react";
+import Button from "../common/Button";
+import Input from "../common/Input";
+import { SparklesIcon, YoutubeIcon } from "../common/Icons";
+import { extractVideoId, PRESET_VIDEOS } from "../../utils/youtube";
 
-export default function CreateRoomCard({ username, setUsername, onCreate, busy, error }) {
-  const [title, setTitle] = useState('');
-  const [customVideo, setCustomVideo] = useState('');
-  const [selectedPreset, setSelectedPreset] = useState(PRESET_VIDEOS[0].videoId);
+export default function CreateRoomCard({
+  username,
+  setUsername,
+  onCreate,
+  busy,
+  error,
+}) {
+  const [title, setTitle] = useState("");
+  const [customVideo, setCustomVideo] = useState("");
+  const [selectedPreset, setSelectedPreset] = useState(
+    PRESET_VIDEOS[0].videoId,
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const videoId = customVideo.trim() ? extractVideoId(customVideo) : selectedPreset;
-    onCreate({ title: title.trim(), videoId: videoId || PRESET_VIDEOS[0].videoId });
+    const videoId = customVideo.trim()
+      ? extractVideoId(customVideo)
+      : selectedPreset;
+    onCreate({
+      title: title.trim(),
+      videoId: videoId || PRESET_VIDEOS[0].videoId,
+    });
   };
 
   return (
@@ -23,15 +36,19 @@ export default function CreateRoomCard({ username, setUsername, onCreate, busy, 
             <SparklesIcon className="w-4 h-4" />
           </div>
           <div>
-            <h2 className="text-lg font-bold text-white font-display">Create a New Room</h2>
-            <p className="text-xs text-slate-400">You will be assigned as the Host</p>
+            <h2 className="text-lg font-bold text-white font-display">
+              Create a New Room
+            </h2>
+            <p className="text-xs text-slate-400">
+              You will be assigned as the Host
+            </p>
           </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input
             label="Your Name"
-            placeholder="e.g. Alex"
+            placeholder="e.g. Ayush Singh"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             maxLength={24}
@@ -68,8 +85,8 @@ export default function CreateRoomCard({ username, setUsername, onCreate, busy, 
                     onClick={() => setSelectedPreset(preset.videoId)}
                     className={`text-[11px] px-2.5 py-1 rounded-lg border transition ${
                       selectedPreset === preset.videoId
-                        ? 'bg-brand-500/20 border-brand-500 text-brand-300 font-medium'
-                        : 'bg-dark-900 border-slate-800 text-slate-400 hover:text-slate-300 hover:border-slate-700'
+                        ? "bg-brand-500/20 border-brand-500 text-brand-300 font-medium"
+                        : "bg-dark-900 border-slate-800 text-slate-400 hover:text-slate-300 hover:border-slate-700"
                     }`}
                   >
                     {preset.category}: {preset.title.slice(0, 22)}…
@@ -79,7 +96,11 @@ export default function CreateRoomCard({ username, setUsername, onCreate, busy, 
             )}
           </div>
 
-          {error && <p className="text-xs text-rose-400 bg-rose-950/40 p-2.5 rounded-lg border border-rose-500/30">{error}</p>}
+          {error && (
+            <p className="text-xs text-rose-400 bg-rose-950/40 p-2.5 rounded-lg border border-rose-500/30">
+              {error}
+            </p>
+          )}
 
           <Button
             type="submit"

@@ -1,5 +1,5 @@
-import React from 'react';
-import { YoutubeIcon } from '../common/Icons';
+import React from "react";
+import { YoutubeIcon } from "../common/Icons";
 
 export default function Footer() {
   return (
@@ -9,10 +9,10 @@ export default function Footer() {
           <YoutubeIcon className="w-4 h-4 text-brand-500" />
           <span className="font-semibold text-white">WatchParty Pro</span>
           <span className="text-slate-500">·</span>
-          <span>v2.0 MVC + MongoDB</span>
         </div>
         <p className="text-slate-400">
-          Watch YouTube videos together with frame-accurate sync, role-based controls, and live chat.
+          Watch YouTube videos together with frame-accurate sync, role-based
+          controls, and live chat.
         </p>
       </div>
     </footer>
