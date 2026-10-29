@@ -4,6 +4,8 @@ import { UsersIcon, YoutubeIcon, PlayIcon } from '../common/Icons';
 import { getThumbnailUrl } from '../../utils/youtube';
 
 export default function ActiveRoomsPreview({ onSelectRoom }) {
+
+  return null;
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(true);
 
